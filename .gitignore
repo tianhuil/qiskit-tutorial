@@ -7,6 +7,6 @@
 4_applications/.ipynb_*
 5_games/.ipynb_*
 
-Qconfig.py
+secret.txt
 
 __pycache__/
