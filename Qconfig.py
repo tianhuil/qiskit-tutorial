@@ -3,7 +3,11 @@
 # access token. Replace 'PUT_YOUR_API_TOKEN_HERE' below with the quoted
 # token string. Uncomment the APItoken variable, and you will be ready to go.
 
-with open("secret.txt") as fh:
+from os import path
+
+secrets_file = path.join(path.dirname(path.realpath(__file__)), "secret.txt")
+
+with open(secrets_file) as fh:
     APItoken = fh.read().strip()
 
 config = {
