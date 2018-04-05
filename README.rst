@@ -25,94 +25,28 @@ at the top of this repo.
 Installation and setup
 ----------------------
 
-1. Install the `QISKit SDK <https://github.com/QISKit/qiskit-sdk-py>`_
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1. Install the the necessary software
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If the SDK has not already been installed, follow the installation
-instructions in the README file in the
-`QISKit SDK repository <https://github.com/QISKit/qiskit-sdk-py>`__.
-
-Briefly, the steps are:
-
-1. install `conda <https://conda.io/docs/index.html>`_
-2. create conda environment for QISKit::
-
-    conda create -y -n QISKitenv python=3 pip scipy
-
-3. activate the environment
-
-   - MacOS, Linux: ``source activate QISKitenv``
-   - Windows: ``activate QISKitenv``
-
-3. install qiskit:
-
-   Please note that the **master** branch of the tutorials, is intented to be
-   used with the **master** branch (development version) of the SDK. As a
-   result, for using it you need to clone the SDK repository (and periodically
-   update it) via::
-
-    git clone https://github.com/QISKit/qiskit-sdk-py.git
-
-   If you do not need access to the most recent features, please consider using
-   the ``stable`` version of the tutorials instead. When using the **stable**
-   branch of the tutorials, the stable version of the SDK can be installed
-   via::
-
-   pip install qiskit
-
-4. setup API token
-
-    1. Create an
-       `IBM Quantum Experience Experience <https://quantumexperience.ng.bluemix.net>`__
-       account if you haven't already done so
-    2. Get an API token from the Quantum Experience website under "My Account" > "Personal Access Token"
-    3. You will insert your API token in a file called Qconfig.py in the qiskit-tutorial directory. The contents of the file should look like,
-
-        .. code:: python
-
-            APItoken = 'my token from the Quantum Experience'
-            config = {'url': 'https://quantumexperience.ng.bluemix.net/api'}
-
-            if 'APItoken' not in locals():
-                raise Exception('Please set up your access token. See Qconfig.py.')
-
-2. Install `Jupyter <http://jupyter.readthedocs.io/en/latest/install.html>`__
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-After the previous step you should have a ``QISKitenv`` `conda
-<https://conda.io/docs/index.html>`_ environment and your API token
-setup. In a terminal window make sure you are in the QISKitenv conda
-environment,
-
-   - MacOS, Linux: ``source activate QISKitenv``
-   - Windows: ``activate QISKitenv``
-
-Then install jupyter with,
+To install, simply clone this repo, ``cd`` into the directory, and run
 
 .. code:: sh
 
-    conda install jupyter
+    make conda
 
-3. Get the tutorials
-~~~~~~~~~~~~~~~~~~~~
+To setup the API token:
 
-Using ``git`` to clone the SDK repository is the easiest way to
-keep up with the latest changes or to contribute to the
-tutorials. 
+1. Create an `IBM Quantum Experience Experience <https://quantumexperience.ng.bluemix.net>` account if you haven't already done so
+2. Get an API token from the Quantum Experience website under "My Account" > "Personal Access Token"
+3. You will insert your API token into a new ``secret.txt`` file at the root of this tutorial.  It is read by the ``Qconfig.py`` file.  Don't worry: it is ignored by ``.gitignore``.
+
+To startup jupyter, run
 
 .. code:: sh
 
-    git clone https://github.com/QISKit/qiskit-tutorial.git
+    make jupyter
 
-Alternatively it is also possible to just download the source files in
-a ZIP archive. For the ZIP file download, select the desired branch
-from the ``Branch`` drop-down button on the GitHub page. Usually this
-would be the highest revision branch available or ``master`` if you
-want the latest development version. Select the green ``Clone or
-download`` button then ``Download ZIP`` to get the source file
-archive.
-
-4. Explore the tutorials
+2. Explore the tutorials
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 In a terminal window copy or link your Qconfig.py file from step (1)
